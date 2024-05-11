@@ -1,13 +1,18 @@
+
 import re
 
-def remove_html_tags(text):
-    # Паттерн для поиска HTML-тегов
-    pattern = re.compile(r'<.*?>')
-    # Удаление HTML-тегов из строки
-    clean_text = re.sub(pattern, '', text)
-    return clean_text
+def is_valid_password(password):
+    # Паттерн для проверки пароля
+    pattern = re.compile(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,24}$')
+    # Проверка пароля
+    if re.match(pattern, password):
+        return True
+    else:
+        return False
 
 # Пример использования
-html_text = input("Enter text: ")
-clean_text = remove_html_tags(html_text)
-print("Текст без HTML-тегов:", clean_text)
+password = input("Введите пароль: ")
+if is_valid_password(password):
+    print("Пароль валиден.")
+else:
+    print("Пароль не соответствует требованиям.")
