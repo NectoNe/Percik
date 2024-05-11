@@ -1,1 +1,4 @@
-
+import re
+word = input("Enter words: ")
+result = re.search(r'\w*-\w*',word)
+print(result.group(0))
